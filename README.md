@@ -22,3 +22,29 @@ git clone https://github.com/libxsmm/libxsmm.git
 cd libxsmm
 make clean  # If rebuilding
 make -j4 STATIC=0 BLAS=0 CC=gcc-12 CXX=g++-12 FC=gfortran-12
+
+```
+3. Setup Python virtual environment:
+```
+python3 -m virtualenv pyfr-venv
+source pyfr-venv/bin/activate
+
+```
+4. Install PyFR:
+```
+pip install pyfr
+
+```
+5. Configure environment (add to ~/.bashrc):
+```
+# Add to end of ~/.bashrc
+export PYFR_XSMM_LIBRARY_PATH=/path/to/libxsmm/lib/libxsmm.so
+# After editing ~/.bashrc, either start a new terminal or run:
+source ~/.bashrc
+
+```
+To verify the installation:
+```
+activate-pyfr  # Activate the virtual environment
+pyfr --help    # Should display PyFR help information
+
