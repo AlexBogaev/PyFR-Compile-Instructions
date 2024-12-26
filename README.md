@@ -63,11 +63,16 @@ pyfr --help    # Should display PyFR help information
 Gmsh is an automatic three-dimensional finite element mesh generator with built-in pre- and post-processing facilities.
 
 ### Install Gmsh on Ubuntu
-```
+```bash
 sudo apt install gmsh
 ```
 
-After installation you can either run the Gmsh app:
+After installation you can either run the Gmsh GUI app:
 ```
 gmsh
+```
+
+Or use the command line interface:
+```
+gmsh input.geo -[dimension] -o output.msh
 ```
