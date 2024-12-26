@@ -1,10 +1,21 @@
 # PyFR
 ## Overview
-[existing overview content...]
+
+PyFR is an open-source Python based framework for solving advection-diffusion
+type problems on streaming architectures using the Flux Reconstruction
+approach of Huynh. The framework is designed to solve a range of governing
+systems on mixed unstructured grids containing various element types. It is
+also designed to target a range of hardware platforms via use of an in-built
+domain specific language derived from the Mako templating engine.
+
+## Examples
+
+Test cases are available in the
+[PyFR-Test-Cases](https://github.com/PyFR/PyFR-Test-Cases) repository.
 
 ## Installation
 
-### Ubuntu 22.04 LTS
+### Linux Ubuntu
 Follow these steps to install PyFR with OpenMP backend support:
 
 1. Install system dependencies:
