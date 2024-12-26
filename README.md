@@ -77,3 +77,55 @@ Or use the command line interface:
 ```
 gmsh input.geo -[dimension] -o output.msh
 ```
+
+# Conduit and Ascent Visualization
+## Overview
+Conduit and Ascent are required for in-situ visualization capabilities in PyFR. Conduit provides data description services, while Ascent enables visualization of simulation data.
+
+## Installation
+### Install Conduit and Ascent on Ubuntu
+
+1. Install build dependencies:
+```bash
+sudo apt update
+sudo apt install cmake build-essential libopenmpi-dev openmpi-bin curl
+```
+
+2. Install Conduit:
+```
+git clone --recursive https://github.com/llnl/conduit.git
+cd conduit
+python3 scripts/uberenv/uberenv.py --install --prefix="build"
+cd ..
+```
+
+3. Install Ascent with MPI support:
+```
+git clone --recursive https://github.com/alpine-dav/ascent.git
+cd ascent
+
+# Clean any existing builds
+rm -rf build/
+rm -rf src/
+
+# Build with MPI and OpenMP support
+env prefix=build \
+    enable_mpi=ON \
+    enable_cuda=OFF \
+    enable_openmp=ON \
+    ./scripts/build_ascent/build_ascent.sh
+cd ..
+```
+
+4. Configure environment (add to ~/.bashrc):
+```
+# PyFR Ascent configuration
+export PYFR_CONDUIT_LIBRARY_PATH=/home/username/conduit/build/spack/conduit-install/lib/libconduit.so
+export PYFR_ASCENT_MPI_LIBRARY_PATH=/home/username/ascent/build/install/ascent-develop/lib/libascent_mpi.so
+export LD_LIBRARY_PATH=/home/username/ascent/build/install/vtk-m-v2.1.0/lib:$LD_LIBRARY_PATH
+
+# After editing ~/.bashrc, either start a new terminal or run:
+source ~/.bashrc
+```
+Note: Replace /home/username/ with your actual home directory path.
+
