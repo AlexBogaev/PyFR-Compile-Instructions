@@ -31,6 +31,7 @@ pip3 install virtualenv
 git clone https://github.com/libxsmm/libxsmm.git
 cd libxsmm
 make -j4 STATIC=0 BLAS=0 CC=gcc-12 CXX=g++-12 FC=gfortran-12
+cd ..
 
 ```
 3. Setup Python virtual environment:
@@ -54,6 +55,5 @@ source ~/.bashrc
 ```
 To verify the installation:
 ```
-activate-pyfr  # Activate the virtual environment
 pyfr --help    # Should display PyFR help information
 
