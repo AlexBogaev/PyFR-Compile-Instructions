@@ -112,7 +112,7 @@ rm -rf src/
 env prefix=build \
     enable_mpi=ON \
     enable_cuda=OFF \
-    enable_openmp=ON \
+    enable_openmp=OFF \
     ./scripts/build_ascent/build_ascent.sh
 cd ..
 ```
